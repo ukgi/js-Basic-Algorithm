@@ -1,4 +1,4 @@
-// ❌
+// 🔺
 function solution(str) {
   let result = '';
   let cnt = 1;

@@ -1,3 +1,5 @@
+// 🔺
+
 function solution(arr) {
   let result = 0;
   const n = arr.length;
