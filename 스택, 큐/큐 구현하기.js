@@ -1,18 +1,22 @@
 class Queue {
-  #storage;
-  #front;
-  #rear;
+  #array;
 
-  constructor() {
-    this.#storage = {};
-    this.#front = 0;
-    this.#rear = 0;
+  constructor(array = []) {
+    if (!Array.isArray(array)) {
+      throw new Error(`${array}is not an array`);
+    }
+    this.#array = array;
   }
 
-  size() {
-    if (this.#storage[this.#rear] === undefined) {
-      return 0;
-    }
-    return this.#rear - this.#front + 1;
+  enqueue(v) {
+    return this.#array.push(v);
+  }
+
+  dequeue() {
+    return this.#array.shift();
+  }
+
+  entries() {
+    return [...this.#array];
   }
 }
