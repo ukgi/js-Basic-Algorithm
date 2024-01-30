@@ -1,11 +1,10 @@
 function solution(s) {
   let answer;
-  let stack = [];
-
-  for (const x of s) {
-    if (x === ')') {
+  const stack = [];
+  for (const c of s) {
+    if (c === ')') {
       while (stack.pop() !== '(');
-    } else stack.push(x);
+    } else stack.push(c);
   }
   answer = stack.join('');
   return answer;

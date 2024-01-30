@@ -1,22 +1,20 @@
-// ✨
 function solution(s) {
-  let result = 0;
+  let count = 0;
   const stack = [];
-  const tmp = [...s];
-  tmp.forEach((c, i) => {
+  [...s].forEach((c, i) => {
     if (c === ')') {
-      if (tmp[i - 1] === '(') {
+      if (i - stack[stack.length - 1] === 1) {
         stack.pop();
-        result += stack.length;
+        count += stack.length;
       } else {
+        count += 1;
         stack.pop();
-        result += 1;
       }
-    } else stack.push(c);
+    } else stack.push(i);
   });
 
-  return result;
+  return count;
 }
 
-const input = '()(((()())(())()))(())';
-console.log(solution(input));
+let a = '()(((()())(())()))(())';
+console.log(solution(a)); // 17

@@ -1,21 +1,18 @@
-function isPrime(num) {
-  if (num === 1) return false;
-
-  for (let i = 2; i <= parseInt(Math.sqrt(num)); i += 1) {
-    if (num % i === 0) return false;
+function isPrime(number) {
+  if (number === 1) return false;
+  for (let i = 2; i < Math.floor(Math.sqrt(number)); i++) {
+    if (number % i === 0) return false;
   }
 
   return true;
 }
 
 function solution(arr) {
-  let result = [];
-  arr.forEach((num) => {
-    let formatted = Number(num.toString().split('').reverse().join(''));
-    if (isPrime(formatted)) {
-      result.push(formatted);
-    }
-  });
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    const tmp = Number(arr[i].toString().split('').reverse().join(''));
+    if (isPrime(tmp)) result.push(tmp);
+  }
 
   return result.join(' ');
 }

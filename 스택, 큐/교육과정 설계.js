@@ -10,14 +10,13 @@
 function solution(need, plan) {
   let result = 'YES';
   const queue = [...need];
-  for (const c of plan) {
-    if (queue.length === 0) return result;
-    if (queue.includes(c)) {
-      if (c === queue[0]) queue.shift();
+  for (const subject of plan) {
+    if (queue.includes(subject)) {
+      if (queue[0] === subject) queue.shift();
       else return 'NO';
     }
   }
-  if (queue.length > 0) return 'NO';
+  if (queue.length !== 0) return 'NO';
   return result;
 }
 
