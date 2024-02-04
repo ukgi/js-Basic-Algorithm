@@ -13,20 +13,18 @@ function solution1(k, arr) {
 }
 
 function solution2(k, arr) {
-  let answer = 0;
   let sum = 0;
-
+  let result;
   for (let i = 0; i < k; i++) {
     sum += arr[i];
   }
-  answer = sum;
+  result = sum;
   for (let i = k; i < arr.length; i++) {
     sum += arr[i] - arr[i - k];
-    answer = Math.max(answer, sum);
+    result = Math.max(result, sum);
   }
-
-  return answer;
+  return result;
 }
 
 let a = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
-console.log(solution1(3, a));
+console.log(solution2(3, a)); // 56

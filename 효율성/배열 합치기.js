@@ -1,33 +1,31 @@
-let input = require('fs').readFileSync('input.txt').toString().trim().split('\n');
-let a = input[1].split(' ').map(Number);
-let b = input[2].split(' ').map(Number);
-
 function solution(a, b) {
   const result = [];
-  let p1 = 0;
-  let p2 = 0;
+  let ptrA = 0;
+  let ptrB = 0;
   const n = a.length;
   const m = b.length;
 
-  while (p1 < n && p2 < m) {
-    if (a[p1] <= b[p2]) {
-      result.push(a[p1]);
-      p1 += 1;
+  while (ptrA < n && ptrB < m) {
+    if (a[ptrA] > b[ptrB]) {
+      result.push(b[ptrB]);
+      ptrB++;
     } else {
-      result.push(b[p2]);
-      p2 += 1;
+      result.push(a[ptrA]);
+      ptrA++;
     }
   }
-  while (p1 < n) {
-    result.push(a[p1]);
-    p1++;
+  while (ptrA < n) {
+    result.push(a[ptrA]);
+    ptrA++;
   }
-  while (p2 < m) {
-    result.push(b[p2]);
-    p2++;
+  while (ptrB < m) {
+    result.push(b[ptrB]);
+    ptrB++;
   }
 
   return result.join(' ');
 }
 
-console.log(solution(a, b));
+let a = [1, 3, 5];
+let b = [2, 3, 6, 7, 9];
+console.log(solution(a, b)); // 1 2 3 3 5 6 7 9

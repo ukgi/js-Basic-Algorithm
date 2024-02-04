@@ -24,21 +24,20 @@ function solution1(s) {
 
 // Map
 function solution2(s) {
-  let answer;
-  let sH = new Map();
+  let result;
+  const map = new Map();
   for (const x of s) {
-    if (sH.has(x)) sH.set(x, sH.get(x) + 1);
-    else sH.set(x, 1);
+    if (map.has(x)) map.set(x, map.get(x) + 1);
+    else map.set(x, 1);
   }
   let max = Number.MIN_SAFE_INTEGER;
-  for (const [key, val] of sH) {
-    if (val > max) {
-      max = val;
-      answer = key;
+  for (const [key, value] of map) {
+    if (value > max) {
+      max = value;
+      result = key;
     }
   }
-
-  return answer;
+  return result;
 }
 
 let str = 'BACBACCACCBDEDE';
